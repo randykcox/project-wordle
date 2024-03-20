@@ -18,7 +18,7 @@ function GuessInput({ checkGuess }) {
 	}
 
 	function validateGuess(event) {
-		let newGuess = event.target.value.toUpperCase().slice(0, 5)
+		let newGuess = event.target.value.trim().toUpperCase().slice(0, 5)
 		setGuess(newGuess)
 	}
 	return (
@@ -29,6 +29,8 @@ function GuessInput({ checkGuess }) {
 				required
 				minLength={5}
 				maxLength={5}
+				pattern="[a-zA-Z]{5}"
+				title="5-letter word"
 				id="guess-input"
 				type="text"
 				value={guess}
