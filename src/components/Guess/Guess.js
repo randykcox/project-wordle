@@ -17,18 +17,20 @@ import { checkGuess } from '../../game-helpers'
 
 function Guess({ word, answer }) {
   const wordResult = checkGuess(word, answer)
-  return <>
-    <p className="guess">
-      {range(5).map(num => (
-        wordResult ?
-          <span key={num} className={"cell " + wordResult[num].status}>
-            {wordResult[num].letter}
-          </span>
-          :
-          <span key={num} className="cell"></span>
-      ))}
-    </p>
-  </>
+  return (
+    <>
+      <p className="guess">
+        {range(5).map(num => (
+          wordResult ?
+            <span key={num} className={"cell " + wordResult[num].status}>
+              {wordResult[num].letter}
+            </span>
+            :
+            <span key={num} className="cell"></span>
+        ))}
+      </p>
+    </>
+  )
 }
 
 export default Guess;
